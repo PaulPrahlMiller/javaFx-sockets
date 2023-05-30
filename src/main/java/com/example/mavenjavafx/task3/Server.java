@@ -40,7 +40,7 @@ public class Server {
         }
 
         try {
-            out.writeObject(new CustomFxObject("JavaFX object sent over local network"));
+            out.writeObject(new CustomFxObject("JavaFX object sent over Internet"));
         }
         catch (IOException ioe) {
             System.out.println("Error occurred when writing object to the stream");

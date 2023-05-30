@@ -22,7 +22,7 @@ public class Task3App extends Application {
     public void start(Stage stage) {
         CustomFxObject fxObject = getFxObject();
         VBox vbox = fxObject.createFxObject();
-        Scene scene = new Scene(vbox, fxObject.getWidth(), fxObject.getHeight());
+        Scene scene = new Scene(vbox, fxObject.width, fxObject.height);
         stage.setTitle("JavaFx over network!");
         stage.setScene(scene);
         stage.show();

@@ -18,7 +18,7 @@ public class Task1App extends Application {
         CustomFxObject fxObject = receiver.readObjectFromFile();
 
         VBox vbox = fxObject.createFxObject();
-        Scene scene = new Scene(vbox, fxObject.getWidth(), fxObject.getHeight());
+        Scene scene = new Scene(vbox, fxObject.width, fxObject.height);
         stage.setTitle("JavaFx - Task 1");
         stage.setScene(scene);
         stage.show();
