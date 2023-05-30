@@ -1,8 +1,9 @@
-package com.example.mavenjavafx.sockets;
+package com.example.mavenjavafx.task3;
+
+import com.example.mavenjavafx.CustomFxObject;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -18,12 +19,12 @@ public class Client {
 
     public void establish() {
         try {
-            socket = new Socket(InetAddress.getLocalHost(), 8080);
+            socket = new Socket("37.250.202.2", 6060, InetAddress.getLocalHost(), 8080);
         } catch (UnknownHostException e) {
-            System.err.println("Don't know about host.");
+            System.err.println("Could not connect to host.");
             System.exit(1);
         } catch (IOException e) {
-            System.err.println("Couldn't get I/O");
+            System.err.println("An error occurred when creating the socket.");
             System.exit(1);
         }
     }
@@ -33,10 +34,10 @@ public class Client {
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
             return (CustomFxObject) in.readObject();
         } catch (IOException ioe) {
-            System.out.println("Failed");
+            System.out.println("Error occurred when reading the stream");
             System.exit(-1);
         } catch (ClassNotFoundException e) {
-            System.out.println("Class not found");
+            System.out.println("No CustomFxObject could be found.");
             System.exit(-1);
         }
         return null;
